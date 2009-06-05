@@ -122,4 +122,45 @@ class Services_Careerjet
 end
 
 
-Services_Careerjet.new(:es_ES, {:page => 3, :keywords => :camarero})
+
+# OPTIONS
+#   All options have default values and are not mandatory
+#
+#     keywords     : Keywords to search in job offers. Example: 'java manager'
+#                    Default : none (All offers in the api country)
+#
+#     location     : Location to search job offers in. Examples: 'London' , 'Yorkshire' ..
+#                    Default: none ( All offers in the api country)
+#
+#     sort         : Type of sort. Can be:
+#                     'relevance' (default) - most relevant first 
+#                     'date'                - freshest offer first 
+#                     'salary'              - biggest salary first
+#
+#     start_num    : Num of first offer returned in entire result space
+#                    should be >= 1 and <= Number of hits
+#                    Default : 1 
+#
+#     pagesize     : Number of offers returned in one call
+#                    Default : 20
+#
+#     page         : Number of the asked page. 
+#                    should be >=1
+#                    The max number of page is given by $result->pages
+#                    If this value is set, the eventually given start_num is overrided
+#
+#     contracttype : Character code for contract type
+#                     'p'    - permanent job
+#                     'c'    - contract
+#                     't'    - temporary
+#                     'i'    - training
+#                     'v'    - voluntary
+#                    Default: none (all contract types)
+#     
+#     contractperiod : Character code for contract work period:
+#                       'f'     - Full time
+#                       'p'     - Part time
+#                      Default: none (all work period)
+#
+
+#Services_Careerjet.new(:es_ES, {:page => 3, :keywords => :camarero})

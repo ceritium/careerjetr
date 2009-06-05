@@ -71,7 +71,7 @@ class Services_Careerjet
 
   require 'net/http'
   require 'rubygems'
-  require 'json/pure'
+  require 'json'
   
   attr_reader :url, :pages, :jobs
   
@@ -83,6 +83,8 @@ class Services_Careerjet
     @current_page
     @pages = json[:pages]
     @jobs = json[:jobs]
+    @type = json[:type]
+    @hits = json[:hits]
   end
   
   # Generamos la url completa para la llamada a la api
@@ -93,7 +95,9 @@ class Services_Careerjet
   
   def parse_json
     hash = {} 
-    json = JSON::Pure::Parser.new(Net::HTTP.get(URI.parse(@url))).parse
+    json = JSON::Parser.new(Net::HTTP.get(URI.parse(@url))).parse
+    hash.store(:type, json['type'])
+    hash.store(:hits, json['hits'])
     hash.store(:pages, json['pages'])
     hash.store(:jobs, json['jobs'])
     
@@ -118,4 +122,4 @@ class Services_Careerjet
 end
 
 
-#Services_Careerjet.new(:es_ES, {:page => 3, :keywords => :camarero})
+Services_Careerjet.new(:es_ES, {:page => 3, :keywords => :camarero})

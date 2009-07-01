@@ -1,7 +1,5 @@
-class Services_Careerjet                                                                                                 
+class Careerjetr                                                                                              
                                                                                                                          
-  #Available locales: 
-  #   LOCALE     LANGUAGE                      DEFAULT LOCATION                    CAREERJET SITE
   LOCALES = {
     :cs_CZ  => {:language =>'Czech'         , :location =>  'Czech Republic'      , :url => 'http://www.careerjet.cz'        },
     :da_DK  => {:language =>'Danish'        , :location =>  'Denmark'             , :url => 'http://www.careerjet.dk'        },
@@ -68,10 +66,6 @@ class Services_Careerjet
     :vi_VN  => {:language =>'Vietnamese'    , :location =>  'Vietnam'             , :url => 'http://www.careerjet.com.vn'    },
     :zh_CN  => {:language =>'Chinese'       , :location =>  'China'               , :url=>  'http://www.careerjet.cn'        }
     } 
-
-  require 'net/http'
-  require 'rubygems'
-  require 'json'
   
   attr_reader :url, :pages, :jobs
   
@@ -92,7 +86,7 @@ class Services_Careerjet
     URI.escape(get_base(locale) + '?' +  url_params(params))
   end
   
-  
+  # Devuelve un hash con la información disponible
   def parse_json
     hash = {} 
     json = JSON::Parser.new(Net::HTTP.get(URI.parse(@url))).parse
@@ -106,6 +100,7 @@ class Services_Careerjet
   
  
   private
+  
   # Obtenemos el dominio según el key del locale
   def get_base(locale)
     LOCALES[locale][:url] + '/devel/search.api'
@@ -120,47 +115,3 @@ class Services_Careerjet
   
   
 end
-
-
-
-# OPTIONS
-#   All options have default values and are not mandatory
-#
-#     keywords     : Keywords to search in job offers. Example: 'java manager'
-#                    Default : none (All offers in the api country)
-#
-#     location     : Location to search job offers in. Examples: 'London' , 'Yorkshire' ..
-#                    Default: none ( All offers in the api country)
-#
-#     sort         : Type of sort. Can be:
-#                     'relevance' (default) - most relevant first 
-#                     'date'                - freshest offer first 
-#                     'salary'              - biggest salary first
-#
-#     start_num    : Num of first offer returned in entire result space
-#                    should be >= 1 and <= Number of hits
-#                    Default : 1 
-#
-#     pagesize     : Number of offers returned in one call
-#                    Default : 20
-#
-#     page         : Number of the asked page. 
-#                    should be >=1
-#                    The max number of page is given by $result->pages
-#                    If this value is set, the eventually given start_num is overrided
-#
-#     contracttype : Character code for contract type
-#                     'p'    - permanent job
-#                     'c'    - contract
-#                     't'    - temporary
-#                     'i'    - training
-#                     'v'    - voluntary
-#                    Default: none (all contract types)
-#     
-#     contractperiod : Character code for contract work period:
-#                       'f'     - Full time
-#                       'p'     - Part time
-#                      Default: none (all work period)
-#
-
-#Services_Careerjet.new(:es_ES, {:page => 3, :keywords => :camarero})

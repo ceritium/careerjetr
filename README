@@ -1,3 +1,0 @@
-Example:
-
-  Services_Careerjet.new(:es_ES, {:page => 3, :keywords => :camarero})

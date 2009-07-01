@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ["README.rdoc"]
   s.files = ["README.rdoc", "Rakefile", "lib/careerjetr", "lib/careerjetr/careerjetr.rb", "lib/careerjetr/version.rb", "lib/careerjetr.rb", "test/test_helper.rb", "test/unit", "test/unit/careerjetr_test.rb"]
   s.has_rdoc = true
-  s.homepage = %q{http://ceritium.net}
+  s.homepage = %q{http://github.com/ceritium/careerjetr/tree/master}
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.1}

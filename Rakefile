@@ -15,7 +15,7 @@ spec = Gem::Specification.new do |s|
   s.summary          = "Ruby interface to Careerjet's public search API"
   s.author           = 'José Galisteo'
   s.email            = 'ceritium@gmail.com'
-  s.homepage         = 'http://ceritium.net'
+  s.homepage         = 'http://github.com/ceritium/careerjetr/tree/master'
   s.files            = %w(README.rdoc Rakefile) + Dir.glob("{lib,test}/**/*")
   # s.executables    = ['careerjetr']
   

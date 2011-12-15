@@ -82,11 +82,18 @@ class Careerjetr
   end
   
   # Generamos la url completa para la llamada a la api
+  # Generate the full url for the api call
   def get_url(locale, params)
-    URI.escape(get_base(locale) + '?' +  url_params(params))
+    URI.escape('http://public.api.careerjet.net/search?locale_hostname=') + URI.escape(LOCALES[locale][:url]) + URI.escape('&') +  URI.escape(url_params(params))
+  end
+
+def get_url(locale, params)
+    'http://public.api.careerjet.net/search?locale_hostname=' + URI.escape(get_base(locale).sub('http://','')
+ + '&' +  url_params(params))
   end
   
   # Devuelve un hash con la información disponible
+  #  Returns a hash with information available
   def parse_json
     hash = {} 
     json = JSON::Parser.new(Net::HTTP.get(URI.parse(@url))).parse
@@ -102,9 +109,10 @@ class Careerjetr
   private
   
   # Obtenemos el dominio según el key del locale
-  def get_base(locale)
-    LOCALES[locale][:url] + '/devel/search.api'
-  end
+  #This function was critical, but now obsolete with new api format from careerjet.
+#  def get_base(locale)
+#    LOCALES[locale][:url] + '/devel/search.api'
+#  end
   
   # Pasamos a url los parametros de la busqueda
   # NOTA: ¿Es necesario pasarle el urlencode?

@@ -21,7 +21,7 @@ class Careerjetr
     :en_QA  => {:language =>'English'       , :location =>  'Qatar'               , :url => 'http://www.careerjet.com.qa'    },
     :en_SG  => {:language =>'English'       , :location =>  'Singapore'           , :url => 'http://www.careerjet.sg'        },
     :en_GB  => {:language =>'English'       , :location =>  'United Kingdom'      , :url => 'http://www.careerjet.co.uk'     },
-    :en_US  => {:language =>'English'       , :location =>  'United States'       , :url => 'http://www.careerjet.com'       },
+    :en_US  => {:language =>'English'       , :location =>  'United States'       , :url => 'http://public.api.careerjet.net'       },
     :en_ZA  => {:language =>'English'       , :location =>  'South Africa'        , :url => 'http://www.careerjet.co.za'     },
     :en_TW  => {:language =>'English'       , :location =>  'Taiwan'              , :url => 'http://www.careerjet.com.tw'    },
     :en_VN  => {:language =>'English'       , :location =>  'Vietnam'             , :url => 'http://www.careerjet.vn'        },

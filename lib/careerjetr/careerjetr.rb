@@ -21,7 +21,7 @@ class Careerjetr
     :en_QA  => {:language =>'English'       , :location =>  'Qatar'               , :url => 'http://www.careerjet.com.qa'    },
     :en_SG  => {:language =>'English'       , :location =>  'Singapore'           , :url => 'http://www.careerjet.sg'        },
     :en_GB  => {:language =>'English'       , :location =>  'United Kingdom'      , :url => 'http://www.careerjet.co.uk'     },
-    :en_US  => {:language =>'English'       , :location =>  'United States'       , :url => 'http://public.api.careerjet.net'       },
+    :en_US  => {:language =>'English'       , :location =>  'United States'       , :url => 'http://www.careerjet.com'       },
     :en_ZA  => {:language =>'English'       , :location =>  'South Africa'        , :url => 'http://www.careerjet.co.za'     },
     :en_TW  => {:language =>'English'       , :location =>  'Taiwan'              , :url => 'http://www.careerjet.com.tw'    },
     :en_VN  => {:language =>'English'       , :location =>  'Vietnam'             , :url => 'http://www.careerjet.vn'        },
@@ -83,7 +83,8 @@ class Careerjetr
   
   # Generamos la url completa para la llamada a la api
   def get_url(locale, params)
-    URI.escape(get_base(locale) + '?' +  url_params(params))
+    'http://public.api.careerjet.net/search?locale_hostname=' + URI.escape(get_base(locale).sub('http://','')
+ + '&' +  url_params(params))
   end
   
   # Devuelve un hash con la información disponible
